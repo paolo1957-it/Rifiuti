@@ -4,7 +4,7 @@
 window.RIFIUTI_CONFIG = {
   // Versione dell'app, mostrata in diagonale sulla mappa. Aumentala a ogni aggiornamento
   // (insieme alla cache in sw.js e a ?v= in index.html).
-  versione: "1",
+  versione: "2",
 
   // Raggio di ricerca iniziale in metri (modificabile anche dall'app)
   raggioMetri: 5000,
@@ -19,5 +19,8 @@ window.RIFIUTI_CONFIG = {
   autoRefreshSecondi: 0,
 
   // Modello di Claude usato per riconoscere i rifiuti dalla foto (serve la chiave personale)
-  modelloClaude: "claude-opus-5-5"
+  modelloClaude: "claude-opus-5-5",
+
+  // Pagina Claude aperta dal pulsante Foto quando non c'è la chiave: usa l'account Claude dell'utente
+  paginaClaude: "https://claude.ai/artifact/1eCvG2ZR6tCqkt7mS3RTp2"
 };

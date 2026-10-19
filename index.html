@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
   <div class="app">
@@ -180,7 +180,7 @@
         <div class="auto auto-colonna" id="riga-chiave">
           <label for="chiave"><span>CHIAVE DI CLAUDE</span></label>
           <input id="chiave" type="password" placeholder="sk-ant-…" autocomplete="off" spellcheck="false">
-          <p class="nota" id="chiave-stato">Serve solo per riconoscere i rifiuti dalla foto. Resta su questo telefono.</p>
+          <p class="nota" id="chiave-stato">Facoltativa: senza chiave le foto si fanno nella pagina di Claude. Resta su questo telefono.</p>
         </div>
 
         <div class="sommario" id="sommario">
@@ -224,7 +224,7 @@
           <ul class="g-punti">
             <li><b>Scrivi</b> il rifiuto (per esempio "scontrino" o "cartone della pizza"): l'app lo cerca nel suo elenco, che funziona anche senza internet.</li>
             <li><b>Codice a barre</b>: inquadra il codice a barre della confezione. L'app cerca il prodotto su Open Food Facts e ti dice di che materiale è ogni parte dell'imballaggio (bottiglia, tappo, etichetta) e dove va.</li>
-            <li><b>Foto</b>: per gli oggetti senza codice a barre. La foto viene analizzata da Claude, l'intelligenza artificiale di Anthropic. Serve la tua <b>chiave di Claude</b> (vedi sotto).</li>
+            <li><b>Foto</b>: per gli oggetti senza codice a barre. La foto viene analizzata da Claude, l'intelligenza artificiale di Anthropic. Si apre la pagina di Claude, che usa il tuo account Claude: niente chiave e niente costi in più (la foto conta come un messaggio nel limite del tuo piano). Se hai una <b>chiave di Claude</b> (vedi sotto), la foto viene invece analizzata direttamente nell'app.</li>
           </ul>
           <ul class="g-lista">
             <li><span class="g-segno"><span class="g-bin plastica"></span></span><div><b>Plastica e metalli</b>: imballaggi di plastica, lattine, alluminio, scatolette.</div></li>
@@ -288,7 +288,7 @@
             <dt>CHIAVE DI CLAUDE</dt>
             <dd>La chiave personale (inizia con <b>sk-ant-</b>) che si crea su <a href="https://platform.claude.com/" target="_blank" rel="noopener">platform.claude.com</a>
               → API Keys, dopo aver caricato un po' di credito. Ogni foto costa circa un centesimo o due. La chiave resta solo su questo telefono
-              e viene mandata solo ad Anthropic. Senza chiave funzionano lo stesso la ricerca, il codice a barre e la mappa.</dd>
+              e viene mandata solo ad Anthropic. È facoltativa: senza chiave il pulsante Foto apre la pagina di Claude, e ricerca, codice a barre e mappa funzionano lo stesso.</dd>
           </dl>
           <p>Sotto trovi quanti punti di raccolta e quanti centri di raccolta ci sono nel raggio, la distanza del più vicino, poi l'<b>elenco</b>
             ordinato per distanza. Tocca una riga per vederla sulla mappa.</p>
@@ -324,9 +324,9 @@
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="config.js?v=1"></script>
-  <script src="core.js?v=1"></script>
-  <script src="app.js?v=1"></script>
+  <script src="config.js?v=2"></script>
+  <script src="core.js?v=2"></script>
+  <script src="app.js?v=2"></script>
   <!-- Statistiche d'uso anonime, senza cookie: https://rifiuti.goatcounter.com -->
   <script data-goatcounter="https://rifiuti.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>

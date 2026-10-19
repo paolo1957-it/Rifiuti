@@ -795,7 +795,10 @@
   // --- Foto riconosciuta da Claude ---
   $("btn-foto").addEventListener("click", () => {
     if (!chiave()) {
-      statoRic("Per riconoscere i rifiuti dalla foto serve la tua chiave di Claude: inseriscila nella pagina Elenco (pulsante nero). Intanto puoi scrivere il nome del rifiuto o usare il codice a barre.", true);
+      // Senza chiave: apre la pagina Claude che usa l'account Claude dell'utente
+      fermaCamera();
+      window.open(cfg.paginaClaude, "_blank", "noopener");
+      statoRic("Ho aperto la pagina di Claude: scatta lì la foto. Usa il tuo account Claude, senza chiave e senza costi in più.");
       return;
     }
     fermaCamera();
