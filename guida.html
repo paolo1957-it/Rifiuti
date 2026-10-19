@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Guida a Rifiuti</title>
+  <meta name="description" content="Come si usa Rifiuti: dove lo butto, segnaposto, pulsanti, impostazioni e provenienza dei dati">
+  <meta name="theme-color" content="#1b4f9c">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="style.css?v=1">
+  <style>
+    html, body { height: auto; }
+    body { background: var(--superficie); }
+    .pagina-guida .pannello-testa { position: sticky; top: 0; background: var(--superficie); z-index: 10; }
+    .pagina-guida .pannello-corpo { overflow: visible; }
+    .apri-app { display: inline-block; padding: 10px 14px; border-radius: 10px; background: var(--blu); color: var(--su-colore); text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="pagina-guida">
+    <header class="pannello-testa">
+      <h2>Guida a Rifiuti</h2>
+      <a class="apri-app" href="./">Apri l'app</a>
+    </header>
+    <div class="pannello-corpo guida-corpo">
+        <p class="g-intro"><b>Rifiuti</b> ti dice in quale contenitore della differenziata va un rifiuto: lo scrivi, inquadri il codice a barre
+          della confezione o scatti una foto. Sulla mappa vedi i punti di raccolta vicino a te per i rifiuti speciali:
+          centri di raccolta, farmacie, contenitori per pile, elettronici, olio e abiti.</p>
+        <p class="g-versione" id="guida-versione"></p>
+
+        <nav class="g-indice" aria-label="Argomenti">
+          <a href="#g-butto">Dove lo butto?</a><a href="#g-mappa">Segnaposto</a><a href="#g-pulsanti">Pulsanti</a>
+          <a href="#g-elenco">Elenco e impostazioni</a><a href="#g-dati">I dati</a><a href="#g-consigli">Consigli</a>
+        </nav>
+
+        <section id="g-butto">
+          <h3>Dove lo butto?</h3>
+          <p>Tocca il pulsante verde con la <b>macchina fotografica</b> in basso a sinistra. Hai tre modi:</p>
+          <ul class="g-punti">
+            <li><b>Scrivi</b> il rifiuto (per esempio "scontrino" o "cartone della pizza"): l'app lo cerca nel suo elenco, che funziona anche senza internet.</li>
+            <li><b>Codice a barre</b>: inquadra il codice a barre della confezione. L'app cerca il prodotto su Open Food Facts e ti dice di che materiale è ogni parte dell'imballaggio (bottiglia, tappo, etichetta) e dove va.</li>
+            <li><b>Foto</b>: per gli oggetti senza codice a barre. La foto viene analizzata da Claude, l'intelligenza artificiale di Anthropic. Serve la tua <b>chiave di Claude</b> (vedi sotto).</li>
+          </ul>
+          <ul class="g-lista">
+            <li><span class="g-segno"><span class="g-bin plastica"></span></span><div><b>Plastica e metalli</b>: imballaggi di plastica, lattine, alluminio, scatolette.</div></li>
+            <li><span class="g-segno"><span class="g-bin carta"></span></span><div><b>Carta e cartone</b>.</div></li>
+            <li><span class="g-segno"><span class="g-bin vetro"></span></span><div><b>Vetro</b>: bottiglie e vasetti, senza tappi.</div></li>
+            <li><span class="g-segno"><span class="g-bin organico"></span></span><div><b>Organico</b>: avanzi di cibo, fondi di caffè, carta da cucina sporca.</div></li>
+            <li><span class="g-segno"><span class="g-bin indiff"></span></span><div><b>Indifferenziato</b>: quello che non si ricicla.</div></li>
+            <li><span class="g-segno"><span class="g-bin speciale"></span></span><div><b>Raccolta speciale</b>: pile, farmaci, elettronici, olio, abiti, ingombranti. Il pulsante <b>Dove portarlo</b> ti mostra sulla mappa il punto più vicino.</div></li>
+          </ul>
+          <p>Colori e regole cambiano da comune a comune. Scrivi il tuo comune nelle impostazioni: la foto terrà conto delle sue regole, se Claude le conosce.</p>
+        </section>
+
+        <section id="g-mappa">
+          <h3>I segnaposto sulla mappa</h3>
+          <ul class="g-lista">
+            <li><span class="g-segno"><span class="mk tipo blu">CR</span></span><div><b>Centro di raccolta</b> (isola ecologica): accetta quasi tutto, anche ingombranti ed elettronici. Controlla gli orari.</div></li>
+            <li><span class="g-segno"><span class="mk tipo verde">F</span></span><div><b>Farmacia</b>: qui porti i farmaci scaduti.</div></li>
+            <li><span class="g-segno"><span class="mk tipo rosso">P</span></span><div><b>Pile</b>: contenitore per pile e batterie.</div></li>
+            <li><span class="g-segno"><span class="mk tipo rosso">E</span></span><div><b>Elettronici</b>: punto per piccoli elettrodomestici, telefoni, lampadine.</div></li>
+            <li><span class="g-segno"><span class="mk tipo giallo">O</span></span><div><b>Olio</b> da cucina usato.</div></li>
+            <li><span class="g-segno"><span class="mk tipo grigio">A</span></span><div><b>Abiti</b> e scarpe usati.</div></li>
+            <li><span class="g-segno"><span class="mk tipo vetro">V</span></span><div><b>Campana del vetro</b>.</div></li>
+            <li><span class="g-segno"><span class="io"></span></span><div><b>Punto azzurro</b>: sei tu. Il <b>cerchio tratteggiato</b> è il raggio di ricerca.</div></li>
+          </ul>
+          <p>Tocca un segnaposto per aprire il <b>riquadro</b>: nome, indirizzo, cosa si può portare, orari se conosciuti e distanza.
+            L'app lo legge ad alta voce (se la lettura vocale è attiva). Il pulsante <b>Portami qui</b> apre il navigatore.</p>
+        </section>
+
+        <section id="g-pulsanti">
+          <h3>I pulsanti</h3>
+          <ul class="g-lista">
+            <li><span class="g-segno"><span class="g-barra">Cerca un indirizzo…</span></span><div><b>Cerca</b>: scrivi una via o un paese per vedere i punti di raccolta lì invece che intorno a te.</div></li>
+            <li><span class="g-segno"><span class="g-barra corto">Tutti</span></span><div><b>Tipo</b>: mostra solo centri di raccolta, farmacie, pile, elettronici, olio, abiti o vetro. I centri di raccolta compaiono anche con pile, elettronici, olio e abiti perché accettano quasi tutto. Le campane del vetro compaiono solo scegliendo Vetro.</div></li>
+            <li><span class="g-segno"><span class="g-barra corto">5 km</span></span><div><b>Raggio</b>: quanto lontano cercare, 1, 2, 5 o 10 km.</div></li>
+            <li><span class="g-segno"><span class="g-fab verde"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.2l1.5-2h5.6l1.5 2h2.2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><div><b>Dove lo butto?</b>: apre la pagina per riconoscere un rifiuto.</div></li>
+            <li><span class="g-segno"><span class="g-fab blu"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" fill="currentColor"/></svg></span></span><div><b>Il più vicino</b>: porta la mappa sul punto di raccolta più vicino del tipo scelto e ne apre il riquadro.</div></li>
+            <li><span class="g-segno"><span class="g-fab"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="2"/></svg></span></span><div><b>Posizione</b>: riporta la mappa su di te e la fa seguire mentre ti sposti.</div></li>
+            <li><span class="g-segno"><span class="g-fab nero"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="4.5" cy="6" r="1.6" fill="currentColor"/><circle cx="4.5" cy="12" r="1.6" fill="currentColor"/><circle cx="4.5" cy="18" r="1.6" fill="currentColor"/></svg></span></span><div><b>Elenco</b>: apre la pagina con i punti di raccolta vicini e le impostazioni.</div></li>
+            <li><span class="g-segno"><span class="g-fab"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span><div><b>Aggiorna</b>: riscarica subito i dati.</div></li>
+            <li><span class="g-segno"><span class="g-fab occhio"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/></svg></span></span><div><b>Occhio verde</b> (sotto il ?): lo schermo resta sempre acceso perché l'AUTO-REFRESH è attivo. Sparisce con AUTO-REFRESH a 0.</div></li>
+            <li><span class="g-segno"><span class="g-fab"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9.2 9a2.9 2.9 0 1 1 4.1 2.6c-.8.4-1.3 1.1-1.3 2v.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.6" r="1.3" fill="currentColor"/></svg></span></span><div><b>Guida</b> (in alto a sinistra sulla mappa): apre questa pagina.</div></li>
+          </ul>
+          <p>Per ingrandire o rimpicciolire la mappa usa due dita.</p>
+        </section>
+
+        <section id="g-elenco">
+          <h3>La pagina Elenco e le impostazioni</h3>
+          <p>In alto una riga dice cosa sta facendo l'app e quando sono stati scaricati i dati.</p>
+          <dl class="g-def">
+            <dt>AUTO-REFRESH</dt>
+            <dd>Ogni 30, 60 o 120 secondi l'app torna sulla tua posizione e ricalcola i punti vicini. <b>0</b> la spegne (è il valore iniziale).
+              Finché è attivo lo schermo resta acceso (compare l'occhio verde sulla mappa).</dd>
+            <dt>SUONI</dt>
+            <dd>Un <b>bing</b> quando l'aggiornamento è finito o un rifiuto è stato riconosciuto; <b>due note che scendono</b> se qualcosa non riesce.</dd>
+            <dt>MAPPA</dt>
+            <dd><b>Stradale</b> mostra la cartina di OpenStreetMap; <b>Satellite</b> le foto aeree con i nomi di strade e paesi.</dd>
+            <dt>LETTURA VOCALE</dt>
+            <dd>L'app legge ad alta voce il riquadro del punto di raccolta e il contenitore giusto per il rifiuto.</dd>
+            <dt>IL TUO COMUNE</dt>
+            <dd>Serve alla foto per tener conto delle regole del tuo comune.</dd>
+            <dt>CHIAVE DI CLAUDE</dt>
+            <dd>La chiave personale (inizia con <b>sk-ant-</b>) che si crea su <a href="https://platform.claude.com/" target="_blank" rel="noopener">platform.claude.com</a>
+              → API Keys, dopo aver caricato un po' di credito. Ogni foto costa circa un centesimo o due. La chiave resta solo su questo telefono
+              e viene mandata solo ad Anthropic. Senza chiave funzionano lo stesso la ricerca, il codice a barre e la mappa.</dd>
+          </dl>
+          <p>Sotto trovi quanti punti di raccolta e quanti centri di raccolta ci sono nel raggio, la distanza del più vicino, poi l'<b>elenco</b>
+            ordinato per distanza. Tocca una riga per vederla sulla mappa.</p>
+          <p>Le scelte restano memorizzate sul telefono.</p>
+        </section>
+
+        <section id="g-dati">
+          <h3>Da dove vengono i dati</h3>
+          <ul class="g-punti">
+            <li>I <b>punti di raccolta</b> vengono da <b>OpenStreetMap</b>, la mappa libera fatta da volontari: l'app li scarica da sola più volte al giorno.
+              In alcune zone possono mancare o essere vecchi.</li>
+            <li>I <b>prodotti</b> del codice a barre vengono da <b>Open Food Facts</b>, una banca dati libera: non tutti i prodotti hanno i materiali dell'imballaggio.</li>
+            <li>L'<b>elenco dei rifiuti</b> segue le regole più diffuse in Italia.</li>
+            <li>La <b>foto</b> è analizzata da Claude (Anthropic) e può sbagliare.</li>
+            <li>Vale sempre quello che dice il tuo comune o il gestore della raccolta, e gli orari esposti al centro di raccolta.</li>
+          </ul>
+        </section>
+
+        <section id="g-consigli">
+          <h3>Consigli</h3>
+          <ul class="g-punti">
+            <li>Su iPhone: in Safari tocca <b>Condividi → Aggiungi alla schermata Home</b> per usarla come un'app.</li>
+            <li>Al primo avvio consenti l'accesso alla <b>posizione</b> e, quando usi codice a barre o foto, alla <b>fotocamera</b>.</li>
+            <li>Per il codice a barre tieni il telefono a 10–15 cm, con buona luce.</li>
+            <li>Per la foto inquadra un solo oggetto, da vicino, con l'etichetta o il simbolo di riciclo visibile.</li>
+            <li>Il numero di <b>versione</b> scritto sulla mappa ti dice se hai l'ultimo aggiornamento.</li>
+          </ul>
+        </section>
+      </div>
+  </div>
+  <script src="config.js?v=1"></script>
+  <script>document.getElementById("guida-versione").textContent = "Versione " + (window.RIFIUTI_CONFIG.versione || "");</script>
+  <!-- Statistiche d'uso anonime, senza cookie: https://rifiuti.goatcounter.com -->
+  <script data-goatcounter="https://rifiuti.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
