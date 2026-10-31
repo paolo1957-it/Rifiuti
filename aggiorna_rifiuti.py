@@ -166,6 +166,9 @@ def salva(punti, conta, diagnosi):
         "per_tipo": dict(conta),
         "tessere": sorted(tessere),
         "fonte": "© OpenStreetMap e i suoi volontari (ODbL)",
+        "licenza": "Open Database License (ODbL) 1.0",
+        "licenza_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+        "generato_da": "https://github.com/paolo1957-it/Rifiuti",
     }
     with open(os.path.join(CARTELLA, "indice.json"), "w", encoding="utf-8") as f:
         json.dump(indice, f, indent=1, ensure_ascii=False)
