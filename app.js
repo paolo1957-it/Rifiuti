@@ -1,6 +1,6 @@
 /*
  * Rifiuti – interfaccia: mappa, posizione, punti di raccolta, elenco e "Dove lo butto?".
- * Stessa struttura di Colonnine, Distributori e PostoLibero.
+ * Stessa struttura di Colonnine, Distributori e Qui-Parking.
  */
 (function () {
   "use strict";
