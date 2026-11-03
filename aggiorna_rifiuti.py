@@ -31,7 +31,7 @@ from datetime import datetime, timezone
 
 CARTELLA = "dati"
 PASSO = 0.25          # lato della tessera in gradi
-USER_AGENT = "Rifiuti/1.0 (https://github.com/paolo1957-it/Rifiuti)"
+USER_AGENT = "Rifiuti/1.0 (https://github.com/quivicino/Rifiuti)"
 SERVER = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.private.coffee/api/interpreter",
@@ -168,7 +168,7 @@ def salva(punti, conta, diagnosi):
         "fonte": "© OpenStreetMap e i suoi volontari (ODbL)",
         "licenza": "Open Database License (ODbL) 1.0",
         "licenza_url": "https://opendatacommons.org/licenses/odbl/1-0/",
-        "generato_da": "https://github.com/paolo1957-it/Rifiuti",
+        "generato_da": "https://github.com/quivicino/Rifiuti",
     }
     with open(os.path.join(CARTELLA, "indice.json"), "w", encoding="utf-8") as f:
         json.dump(indice, f, indent=1, ensure_ascii=False)

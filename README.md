@@ -1,10 +1,10 @@
-# Rifiuti
+# Qui-Rifiuti
 
 Web app per il telefono che dice **in quale contenitore della differenziata va un rifiuto** e mostra
 **i punti di raccolta vicino a te** (centri di raccolta, farmacie per i farmaci scaduti, contenitori per pile,
 elettronici, olio, abiti e vetro). Stesso aspetto e funzionamento di Distributori e Colonnine.
 
-Sito: https://paolo1957-it.github.io/Rifiuti/ · Guida: https://paolo1957-it.github.io/Rifiuti/guida.html
+Sito: https://quivicino.github.io/Rifiuti/ · Guida: https://quivicino.github.io/Rifiuti/guida.html
 
 ## Dove lo butto?
 
